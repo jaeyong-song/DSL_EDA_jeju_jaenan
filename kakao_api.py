@@ -23,8 +23,9 @@ for i, j in test.iterrows():
     url_text = json.loads(api_test.text)
     test["DONG"][i]= url_text["documents"][0]["region_3depth_name"]
     count += 1
-    print("progress {}".format(count))
-    
+    if (count % 1000 == 0):
+        print("progress {}".format(count))
+        
 print("Finish convert", time.time()-start)
     
    
