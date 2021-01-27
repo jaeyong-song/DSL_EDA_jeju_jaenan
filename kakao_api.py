@@ -13,6 +13,7 @@ headers = {"Authorization": "KakaoAK {AccessKey}"}
 start = time.time()
 count = 0
 
+test["DONG"] = ""
 # 20만건씩 쪼개서 진행
 for i, j in test.iterrows():
     POINT_X = j.POINT_X
