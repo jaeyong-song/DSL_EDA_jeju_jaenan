@@ -14,18 +14,16 @@ start = time.time()
 count = 0
 
 # 20만건씩 쪼개서 진행
-for i, j in data.iterrows():
+for i, j in test.iterrows():
     POINT_X = j.POINT_X
     POINT_Y = j.POINT_Y
     url = ('https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x={}&y={}'.format(POINT_X, POINT_Y))
     api_test = requests.get(url,headers=headers)
     url_text = json.loads(api_test.text)
-    data["DONG"] = url_text["documents"][0]["region_3depth_name"]
+    test["DONG"][i]= url_text["documents"][0]["region_3depth_name"]
     count += 1
-    if (count % 1000 == 0):
-        print("progress {}/10000".format(count))
+    print("progress {}".format(count))
     
 print("Finish convert", time.time()-start)
-
     
    
